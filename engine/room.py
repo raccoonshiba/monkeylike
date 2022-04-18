@@ -1,4 +1,4 @@
-'''Collection of ????'''
-
+'''Generates room object'''
 class Room:
-    pass
+    def __init__(self, property: str):
+        self.property = property
