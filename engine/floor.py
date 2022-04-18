@@ -2,6 +2,7 @@
 
 from engine.room import Room
 
+
 class Floor:
     def __init__(self, seed, number, property):
         self.number = number
