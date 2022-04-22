@@ -1,6 +1,6 @@
 '''Floor class, a collection of rooms'''
-from room import genRoom
-from seed import genSeed
+from engine.room import genRoom
+from engine.seed import genSeed
 from random import randint
 
 def genFloor(x):

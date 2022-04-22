@@ -1,9 +1,9 @@
 '''Generates game object'''
-from seed import genSeed
-from player import Player
+from engine.seed import genSeed
+from engine.player import Player
 import pygame
 from random import randint
-from floor import genFloor
+from engine.floor import genFloor
 def gameGen(x):
     game=[]
     for i in range(genSeed(x)):

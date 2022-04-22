@@ -1,5 +1,5 @@
 '''Generates room object'''
-from seed import genSeed
+from engine.seed import genSeed
 from random import randint
 #setstage
 def genRoom(x):
