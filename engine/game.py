@@ -14,7 +14,6 @@ class Game:
         screen.blit(player.getImage(), (player.getPos()[0], player.getPos()[1]))
 
         while self.running:
-            screen.fill(pygame.Color("black"))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

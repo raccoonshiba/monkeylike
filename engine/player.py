@@ -11,18 +11,23 @@ class Player:
     def move(self, direction, screen):
         if direction == 'r':
             self.posx += 10
+            screen.fill(pygame.Color("black"))
             screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
 
         elif direction == 'l':
             self.posx -= 10
+            screen.fill(pygame.Color("black"))
             screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
 
         elif direction == 'u':
             self.posy -= 10
+            screen.fill(pygame.Color("black"))
+
             screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
 
         elif direction == 'd':
             self.posy += 10
+            screen.fill(pygame.Color("black"))
             screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
 
 
