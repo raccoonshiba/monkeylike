@@ -7,5 +7,3 @@ def genSeed(password):
         return notablepasswords[password]
     return randint(5, 20)
 
-if __name__ == "__main__":
-    pass

@@ -1,5 +1,7 @@
 '''Generates game object'''
 from seed import genSeed
+from player import Player
+import pygame
 from random import randint
 from floor import genFloor
 def gameGen(x):
