@@ -29,7 +29,7 @@ ground2 = pygame.image.load("./assets/ground/ground2.png").convert()
 ground2 = pygame.transform.scale(ground2, (size, size))
 ground3 = pygame.image.load("./assets/ground/ground3.png").convert()
 ground3 = pygame.transform.scale(ground3, (size, size))
-man = pygame.image.load("./assets/monkeygifs/mangif.gif").convert()
+man = pygame.image.load("./assets/monkeygifs/mangif.gif").convert_alpha()
 man = pygame.transform.scale(man, (size, size))
 terminal = pygame.image.load("./assets/terminal/terminal.png").convert()
 terminal = pygame.transform.scale(terminal, (size, size))
@@ -41,6 +41,8 @@ terminal3 = pygame.image.load("./assets/terminal/terminal3.png").convert()
 terminal3 = pygame.transform.scale(terminal3, (size, size))
 terminal4 = pygame.image.load("./assets/terminal/terminal4.png").convert()
 terminal4 = pygame.transform.scale(terminal4, (size, size))
+evil = pygame.image.load("./assets/ground/evilspawn.png").convert()
+evil = pygame.transform.scale(evil, (size, size))
 chest = pygame.image.load("./assets/chest.png").convert()
 chest = pygame.transform.scale(chest, (size, size))
 
@@ -62,9 +64,9 @@ def blitback(seed):
 			if j == "w":
 				fenetre.blit(random.choice(walls), (x,y))
 			if j == "x":
-				fenetre.blit(random.choice(grounds), (x,y))
-			if j == "o":
 				fenetre.blit(chest, (x,y))
+			if j == "o":
+				fenetre.blit(evil, (x,y))
 			if j == "T":
 				fenetre.blit(random.choice(terminals), (x,y))
 			if j == "S":
@@ -98,16 +100,16 @@ while continuer:
 
 		if event.type == KEYDOWN:  # currently 0 0 - 720 720
 			if event.key == K_RIGHT:
-				if room[int(nPosY/(size))][int(nPosX/(size)+1)] not in ["w","T","o"]:
+				if room[int(nPosY/(size))][int(nPosX/(size)+1)] not in ["w","T","x"]:
 					nPosX += size
 			if event.key == K_LEFT: 
-				if room[int(nPosY/(size))][int(nPosX/(size))-1] not in ["w","T","o"]:
+				if room[int(nPosY/(size))][int(nPosX/(size))-1] not in ["w","T","x"]:
 					nPosX -= size
 			if event.key == K_UP: 
-				if room[int(nPosY/(size))-1][int(nPosX/(size))] not in ["w","T","o"]:
+				if  0 < nPosY/size and room[int(nPosY/(size))-1][int(nPosX/(size))] not in ["w","T","x"]:
 					nPosY -= size
 			if event.key == K_DOWN: 
-				if room[int(nPosY/(size)+1)][int(nPosX/(size))] not in ["w","T","o"]:
+				if nPosY/size < 15 and room[int(nPosY/(size)+1)][int(nPosX/(size))] not in ["w","T","x"] :
 					nPosY += size
 			print(nPosY/size)
 			if nPosY/size < 1 or nPosY/size > 14:
