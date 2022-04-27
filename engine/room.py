@@ -10,11 +10,11 @@ def genRoom(x):
         room[i][0]="w"
         room[i][15]="w"
         room[15][i]="w"
-    for i in range(randint(0,1),randint(2,9)):#object
+    for i in range(randint(0,1),randint(2,9)):#enemy
         room[randint(1,14)][randint(1,14)]="o"
     room[15][8]="E"
     room[0][12]="E"
-    for i in range(randint(0,2),randint(2,6)):#enemy
+    for i in range(randint(0,2),randint(2,6)):#object
         room[randint(1,14)][randint(1,14)]="x"
     for i in range(randint(0,2)):#terminal
         room[randint(1,14)][randint(1,14)]="T"
