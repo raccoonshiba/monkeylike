@@ -7,7 +7,6 @@ pygame.init()
 seed=""
 room=[]
 def init(s="steve"):
-	global seed,room
 	seed=s
 	room = engine.room.genRoom(seed)
 
