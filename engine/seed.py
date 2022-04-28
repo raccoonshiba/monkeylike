@@ -6,4 +6,3 @@ def genSeed(password):
     if password in notablepasswords:
         return notablepasswords[password]
     return randint(5, 20)
-
