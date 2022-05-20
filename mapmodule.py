@@ -3,8 +3,8 @@ from pygame.locals import *
 import engine.room
 import random
 import engine.loader
-
-
+from engine.enemy import Enemy
+from engine.player import Player
 
 #---------------liberals
 pygame.init()
@@ -35,7 +35,7 @@ def blitback(seed):
 				fenetre.blit(chest, (x,y))
 			if j == "o":
 				fenetre.blit(evil, (x,y))
-				enemPos.append((x,y))
+				enemPos.append(((int(x/size),int(y/size)), Enemy(random.randint(0,5),random.randint(0,5), "loser")))
 			if j == "T":
 				fenetre.blit(random.choice(terminals), (x,y))
 			if j == "S":
@@ -46,12 +46,24 @@ def blitback(seed):
 		y+=size
 
 def attack(x,y):
-	return None
+	x=x-1
+	y=y-1
+	print("attacking",x,y)
+	for i in enemPos:
+		print(i[0])
+		if i[0]==(x,y):
+			
+			print(i[1].gethp())
+			i[1].sethp(0)
+			if i[1].gethp() <=0:
+				enemPos.remove(i)
+	blitback(seed)
+
 blitback(seed)
 # Affiche le personnage au-dessus de l'herbe
 fenetre.blit(man, (size, size))
 for i in enemPos:
-	fenetre.blit(monke, i)
+	fenetre.blit(monke, i[0])
 # Actualise la fenêtre
 pygame.display.flip()
 
@@ -106,11 +118,11 @@ while continuer:
 			if nPosY/size < 1 or nPosY/size > 14:
 				init(random.randint(0,10000))
 				enemPos=[]
-			print(nPosX/(32+16), nPosY/(32+16))
+			print(nPosX/(size), nPosY/(size))
 			blitback(seed)
 			fenetre.blit(man, (nPosX, nPosY))
 			for i in enemPos:
-				fenetre.blit(monke, i)
+				fenetre.blit(monke, i[0])
 
             # Actualise la fenêtre
 			pygame.display.flip()
