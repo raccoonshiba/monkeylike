@@ -6,10 +6,13 @@ import engine.loader
 pygame.init()
 seed=""
 room=[]
-def init(s="steve"):
+def init(s="steve1"):
+	global room
+	global seed
 	seed=s
-	room = engine.room.genRoom(seed)
 
+	room = engine.room.genRoom(seed)
+	print(room)
 init()
 size=32+16
 # Permet de rendre la fenêtre de taille ajustable.
