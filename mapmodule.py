@@ -17,8 +17,9 @@ def init(s="steve"):
 init()
 size=32+16
 fenetre = pygame.display.set_mode((size*16,size*17), RESIZABLE)
-terminals, grounds, walls,evil, man, chest = engine.loader.load(size)
+terminals, grounds, walls,evil, man, chest,monke = engine.loader.load(size)
 #----------------------liberals
+enemPos= []
 def blitback(seed):
 	y=0
 	random.seed(seed)
@@ -34,6 +35,7 @@ def blitback(seed):
 				fenetre.blit(chest, (x,y))
 			if j == "o":
 				fenetre.blit(evil, (x,y))
+				enemPos.append((x,y))
 			if j == "T":
 				fenetre.blit(random.choice(terminals), (x,y))
 			if j == "S":
@@ -48,7 +50,8 @@ def attack(x,y):
 blitback(seed)
 # Affiche le personnage au-dessus de l'herbe
 fenetre.blit(man, (size, size))
-
+for i in enemPos:
+	fenetre.blit(monke, i)
 # Actualise la fenêtre
 pygame.display.flip()
 
@@ -102,9 +105,12 @@ while continuer:
 			print(nPosY/size)
 			if nPosY/size < 1 or nPosY/size > 14:
 				init(random.randint(0,10000))
+				enemPos=[]
 			print(nPosX/(32+16), nPosY/(32+16))
 			blitback(seed)
 			fenetre.blit(man, (nPosX, nPosY))
+			for i in enemPos:
+				fenetre.blit(monke, i)
 
             # Actualise la fenêtre
 			pygame.display.flip()
