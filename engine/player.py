@@ -2,9 +2,12 @@
 import pygame
 class Player:
     def __init__(self):
-        self.hp = 1
+        self.hp = 10
         self.atk = 1
         self.defense = 1
+        self.xp = 1
+        self.level = 1
+
         self.posx = 10
         self.posy = 10
         self.image = pygame.image.load('monkey.png')

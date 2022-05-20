@@ -3,9 +3,9 @@ from pygame.locals import *
 import engine.room
 import random
 import engine.loader
-
+from engine.player import Player
 #---------------liberals
-
+player = Player()
 pygame.init()
 seed=""
 room=[]
@@ -14,8 +14,10 @@ def init(s="steve"):
 	seed=s
 	room = engine.room.genRoom(seed)
 init()
-size=32+16
-fenetre = pygame.display.set_mode((size*16,size*17), RESIZABLE)
+size=32
+ui_bar = pygame.Surface((size, size), 35)
+
+fenetre = pygame.display.set_mode((size*16,size*18), RESIZABLE)
 terminals, grounds, walls,evil, man, chest = engine.loader.load(size)
 #----------------------liberals
 def blitback(seed):
@@ -41,6 +43,10 @@ def blitback(seed):
 				fenetre.blit(random.choice(grounds), (x,y))
 			x+=size
 		y+=size
+
+def makeUI(player):
+	hp = player.get_hp()
+	
 
 def attack(x,y):
 	return None
@@ -101,7 +107,7 @@ while continuer:
 			print(nPosY/size)
 			if nPosY/size < 1 or nPosY/size > 14:
 				init(random.randint(0,10000))
-			print(nPosX/(32+16), nPosY/(32+16))
+			print(nPosX/(size), nPosY/(size))
 			blitback(seed)
 			fenetre.blit(man, (nPosX, nPosY))
 
