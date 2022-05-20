@@ -4,9 +4,8 @@ import engine.room
 import random
 import engine.loader
 
-
-
 #---------------liberals
+
 pygame.init()
 seed=""
 room=[]
