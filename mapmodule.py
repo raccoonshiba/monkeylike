@@ -10,7 +10,6 @@ def init(s="steve1"):
 	global room
 	global seed
 	seed=s
-
 	room = engine.room.genRoom(seed)
 	print(room)
 init()

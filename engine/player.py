@@ -3,7 +3,8 @@ import pygame
 class Player:
     def __init__(self):
         self.hp = 1
-        self.ad = 1
+        self.atk = 1
+        self.defense = 1
         self.posx = 10
         self.posy = 10
         self.image = pygame.image.load('monkey.png')
@@ -30,10 +31,17 @@ class Player:
             screen.fill(pygame.Color("black"))
             screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
 
-
-
     def getPos(self):
         return (self.posx, self.posy)
     
     def getImage(self):
         return self.image
+
+    def get_hp(self):
+        return self.hp
+
+    def get_atk(self):
+        return self.atk
+
+    def get_def(self):
+        return self.defense

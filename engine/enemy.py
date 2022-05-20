@@ -6,16 +6,16 @@ class Enemy:
         self.atk = atk
         self.affinity = affinity
     
-    def get_hp(self):
+    def getHp(self):
         return self.hp
 
-    def get_atk(self):
+    def getAtk(self):
         return self.atk
 
-    def get_affinity(self):
+    def getAffinity(self):
         return self.atk
 
-    def set_hp(self, value):
+    def setHp(self, value):
         self.hp -= value
 
     def attack(self, target):
