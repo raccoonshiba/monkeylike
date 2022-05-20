@@ -45,3 +45,4 @@ class Player:
 
     def get_def(self):
         return self.defense
+        
