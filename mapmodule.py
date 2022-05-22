@@ -14,8 +14,8 @@ def init(s="steve"):
 	seed=s
 	room = engine.room.genRoom(seed)
 init()
-size=32
-ui_bar = pygame.Surface((size, size), 35)
+size=48
+main_surface = pygame.display.set_mode((size*16, size*18))
 
 fenetre = pygame.display.set_mode((size*16,size*18), RESIZABLE)
 terminals, grounds, walls,evil, man, chest = engine.loader.load(size)
@@ -44,13 +44,23 @@ def blitback(seed):
 			x+=size
 		y+=size
 
+
+
 def makeUI(player):
-	hp = player.get_hp()
-	
+	hp = 20 #player.get_hp()
+	max_hp = 20 #player.get_max_hp()
+
+	posx = 100 
+	posy = 800
+
+	hp_to_draw = (hp/max_hp)*200
+	pygame.draw.rect(main_surface, (255,0,0), (posx,posy,200,5))
+	pygame.draw.rect(main_surface, (0,255,0), (posx,posy,hp_to_draw,5))
 
 def attack(x,y):
 	return None
 blitback(seed)
+makeUI('')
 # Affiche le personnage au-dessus de l'herbe
 fenetre.blit(man, (size, size))
 
@@ -109,6 +119,7 @@ while continuer:
 				init(random.randint(0,10000))
 			print(nPosX/(size), nPosY/(size))
 			blitback(seed)
+			makeUI('pog')
 			fenetre.blit(man, (nPosX, nPosY))
 
             # Actualise la fenêtre
