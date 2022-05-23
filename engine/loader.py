@@ -1,6 +1,6 @@
 '''creates variables, loads them into pygame'''
 import pygame
-def load(size):
+def load(size):#does something
     wall1 = pygame.image.load("./assets/walls/wall1.png").convert()
     wall1 = pygame.transform.scale(wall1, (size, size))
     wall2 = pygame.image.load("./assets/walls/wall2.png").convert()
@@ -17,6 +17,8 @@ def load(size):
     ground3 = pygame.transform.scale(ground3, (size, size))
     man = pygame.image.load("./assets/monkeygifs/mangif.gif").convert_alpha()
     man = pygame.transform.scale(man, (size, size))
+    monke = pygame.image.load("./assets/monkeygifs/steven.gif").convert_alpha()
+    monke = pygame.transform.scale(monke, (size+10, size))
     terminal = pygame.image.load("./assets/terminal/terminal.png").convert()
     terminal = pygame.transform.scale(terminal, (size, size))
     terminal1 = pygame.image.load("./assets/terminal/terminal1.png").convert()
@@ -35,7 +37,6 @@ def load(size):
     manhead = pygame.image.load("./assets/monkeygifs/manheadgifpng.png").convert()
     manhead = pygame.transform.scale(manhead, (size, size))
     terminals = [terminal, terminal1, terminal2, terminal3, terminal4]
-    grounds = [ground1,ground2,ground3]
-    walls = [wall1,wall2,wall3,wall4]
-    
-    return terminals, grounds, walls,evil, man, chest, manhead
+    grounds=[ground1,ground2,ground3]
+    walls=[wall1,wall2,wall3,wall4]
+    return terminals, grounds, walls,evil, man, chest, monke, manhead
