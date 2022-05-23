@@ -49,15 +49,15 @@ def blitback(seed,ii=True):
 		y+=size
 
 def attack(x,y):
-	print("attacking",y,x)
+	#print("attacking",y,x)
 	for i in enemPos:
-		print(i)
+		#print(i)
 		if i[0]==(y,x):
 			
-			print(i[1].getHp())
+			#print(i[1].getHp())
 			i[1].setHp(0)
-			print(i[1].getHp())
-			print("monkenolife")
+			#print(i[1].getHp())
+			#print("monkenolife")
 			if i[1].getHp() <=0:
 				enemPos.remove(i)
 	blitback(seed,False)
@@ -105,7 +105,7 @@ while continuer:
 					nPosY += size
 				rotation=2
 			if event.key == K_SPACE: 
-				print("rtation",rotation)
+				#print("rtation",rotation)
 				if rotation==0:
 					if  0 < nPosY/size and room[int(nPosY/(size))-1][int(nPosX/(size))] not in ["w","T","x"]:
 						attack(int(nPosY/(size))-1,int(nPosX/(size)))
