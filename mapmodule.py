@@ -69,8 +69,7 @@ def makeUI(player):
 	pygame.draw.rect(fenetre, (255,0,0), (posx,posy,size*5,5))
 	pygame.draw.rect(fenetre, (0,255,0), (posx,posy,hp_to_draw,5))
 	pygame.draw.rect(fenetre, (255,0,255), (posx,posy+size/4,exp_to_draw,5))
-	pygame.draw.rect(fenetre, (0,0,0), (posx*10,posy*10))
-  return None
+	#pygame.draw.rect(fenetre, (0,0,0), (posx*10,posy*10))
 
 def attack(x,y):
 	#print("attacking",y,x)
