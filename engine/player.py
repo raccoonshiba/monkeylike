@@ -2,38 +2,23 @@
 import pygame
 class Player:
     def __init__(self):
-        self.hp = 1
-        self.ad = 1
-        self.posx = 10
-        self.posy = 10
-        self.image = pygame.image.load('monkey.png')
+        self.hp = 10
+        self.max_hp = 10
+        self.atk = 1
+        self.defense = 1
+        self.xp = 1
+        self.level = 1
 
-    def move(self, direction, screen):
-        if direction == 'r':
-            self.posx += 10
-            screen.fill(pygame.Color("black"))
-            screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
+    def getHp(self):
+        return self.hp
 
-        elif direction == 'l':
-            self.posx -= 10
-            screen.fill(pygame.Color("black"))
-            screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
+    def getMaxHp(self):
+        return self.max_hp()
 
-        elif direction == 'u':
-            self.posy -= 10
-            screen.fill(pygame.Color("black"))
+    def getAtk(self):
+        return self.atk
 
-            screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
-
-        elif direction == 'd':
-            self.posy += 10
-            screen.fill(pygame.Color("black"))
-            screen.blit(self.getImage(), (self.getPos()[0], self.getPos()[1]))
-
-
-
-    def getPos(self):
-        return (self.posx, self.posy)
+    def getDef(self):
+        return self.defense
     
-    def getImage(self):
-        return self.image
+    
