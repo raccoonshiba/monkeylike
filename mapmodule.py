@@ -107,7 +107,7 @@ while continuer:
 			if event.key == K_SPACE: 
 				#print("rtation",rotation)
 				if rotation==0:
-					if  0 < nPosY/size and room[int(nPosY/(size))-1][int(nPosX/(size))] not in ["w","T","x"]:
+					if 0 < nPosY/size and room[int(nPosY/(size))-1][int(nPosX/(size))] not in ["w","T","x"]:
 						attack(int(nPosY/(size))-1,int(nPosX/(size)))
 				if rotation==2:
 					if nPosY/size < 15 and room[int(nPosY/(size)+1)][int(nPosX/(size))] not in ["w","T","x"] :
