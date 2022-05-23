@@ -6,7 +6,9 @@ import engine.loader
 from engine.enemy import Enemy
 from engine.player import Player
 
+
 #---------------liberals
+player = Player()
 pygame.init()
 seed=""
 room=[]
@@ -17,7 +19,8 @@ def init(s="steve"):
 init()
 size=32+16
 fenetre = pygame.display.set_mode((size*16,size*17), RESIZABLE)
-terminals, grounds, walls,evil, man, chest,monke = engine.loader.load(size)
+terminals, grounds, walls,evil, man, chest,monke, manhead = engine.loader.load(size)
+
 #----------------------liberals
 enemPos= []
 
@@ -48,12 +51,32 @@ def blitback(seed,ii=True):
 			x+=size
 		y+=size
 
+
+
+def makeUI(player):
+	hp = 15 #player.getHp()
+	max_hp = 20 #player.getMaxHp()
+
+	xp = 100
+	maxXp = 100
+
+	posx = int(size*1.25)
+	posy = int(size*16.5)
+
+	hp_to_draw = (hp/max_hp)*(size*5)
+	exp_to_draw = (xp/maxXp)*(size*4)
+	fenetre.blit(manhead, (posx-size,posy-int(size/2)+(size/4)))
+	pygame.draw.rect(fenetre, (255,0,0), (posx,posy,size*5,5))
+	pygame.draw.rect(fenetre, (0,255,0), (posx,posy,hp_to_draw,5))
+	pygame.draw.rect(fenetre, (255,0,255), (posx,posy+size/4,exp_to_draw,5))
+	pygame.draw.rect(fenetre, (0,0,0), (posx*10,posy*10))
+  return None
+
 def attack(x,y):
 	#print("attacking",y,x)
 	for i in enemPos:
 		#print(i)
 		if i[0]==(y,x):
-			
 			#print(i[1].getHp())
 			i[1].setHp(0)
 			#print(i[1].getHp())
@@ -61,8 +84,10 @@ def attack(x,y):
 			if i[1].getHp() <=0:
 				enemPos.remove(i)
 	blitback(seed,False)
-
 blitback(seed)
+
+	
+makeUI('')
 # Affiche le personnage au-dessus de l'herbe
 fenetre.blit(man, (size, size))
 for i in enemPos:
@@ -125,6 +150,7 @@ while continuer:
 				blitback(seed)
 			#print(nPosX/(size), nPosY/(size))
 			blitback(seed,False)
+			makeUI('pog')
 			fenetre.blit(man, (nPosX, nPosY))
 			for i in enemPos:
 				

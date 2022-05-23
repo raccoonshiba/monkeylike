@@ -2,18 +2,23 @@
 import pygame
 class Player:
     def __init__(self):
-        self.hp = 1
+        self.hp = 10
+        self.max_hp = 10
         self.atk = 1
         self.defense = 1
-        self.posx = 10
-        self.posy = 10
+        self.xp = 1
+        self.level = 1
 
-    def get_hp(self):
+    def getHp(self):
         return self.hp
 
-    def get_atk(self):
+    def getMaxHp(self):
+        return self.max_hp()
+
+    def getAtk(self):
         return self.atk
 
-    def get_def(self):
+    def getDef(self):
         return self.defense
-        
+    
+    
