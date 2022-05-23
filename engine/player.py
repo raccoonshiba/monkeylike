@@ -9,15 +9,16 @@ class Player:
         self.xp = 1
         self.level = 1
 
-    def get_hp(self):
+    def getHp(self):
         return self.hp
 
-    def get_max_hp(self):
+    def getMaxHp(self):
         return self.max_hp()
 
-    def get_atk(self):
+    def getAtk(self):
         return self.atk
 
-    def get_def(self):
+    def getDef(self):
         return self.defense
-        
+    
+    

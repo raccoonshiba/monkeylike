@@ -14,11 +14,10 @@ def init(s="steve"):
 	seed=s
 	room = engine.room.genRoom(seed)
 init()
-size=48
-main_surface = pygame.display.set_mode((size*16, size*18))
+size=32
 
 fenetre = pygame.display.set_mode((size*16,size*18), RESIZABLE)
-terminals, grounds, walls,evil, man, chest = engine.loader.load(size)
+terminals, grounds, walls,evil, man, chest, manhead = engine.loader.load(size)
 #----------------------liberals
 def blitback(seed):
 	y=0
@@ -47,19 +46,26 @@ def blitback(seed):
 
 
 def makeUI(player):
-	hp = 20 #player.get_hp()
-	max_hp = 20 #player.get_max_hp()
+	hp = 15 #player.getHp()
+	max_hp = 20 #player.getMaxHp()
 
-	posx = 100 
-	posy = 800
+	xp = 100
+	maxXp = 100
 
-	hp_to_draw = (hp/max_hp)*200
-	pygame.draw.rect(main_surface, (255,0,0), (posx,posy,200,5))
-	pygame.draw.rect(main_surface, (0,255,0), (posx,posy,hp_to_draw,5))
+	posx = int(size*1.25)
+	posy = int(size*16.5)
+
+	hp_to_draw = (hp/max_hp)*(size*5)
+	exp_to_draw = (xp/maxXp)*(size*4)
+	fenetre.blit(manhead, (posx-size,posy-int(size/2)+(size/4)))
+	pygame.draw.rect(fenetre, (255,0,0), (posx,posy,size*5,5))
+	pygame.draw.rect(fenetre, (0,255,0), (posx,posy,hp_to_draw,5))
+	pygame.draw.rect(fenetre, (255,0,255), (posx,posy+size/4,exp_to_draw,5))
+	pygame.draw.rect(fenetre, (0,0,0), (posx*10,posy*10)) 	
 
 def attack(x,y):
 	return None
-blitback(seed)
+blitback(seed) 
 makeUI('')
 # Affiche le personnage au-dessus de l'herbe
 fenetre.blit(man, (size, size))

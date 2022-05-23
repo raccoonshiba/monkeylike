@@ -32,7 +32,10 @@ def load(size):
     chest = pygame.image.load("./assets/chest.png").convert()
     chest = pygame.transform.scale(chest, (size, size))
     man.set_colorkey((255,255,255)) 
+    manhead = pygame.image.load("./assets/monkeygifs/manheadgifpng.png").convert()
+    manhead = pygame.transform.scale(manhead, (size, size))
     terminals = [terminal, terminal1, terminal2, terminal3, terminal4]
-    grounds=[ground1,ground2,ground3]
-    walls=[wall1,wall2,wall3,wall4]
-    return terminals, grounds, walls,evil, man, chest
+    grounds = [ground1,ground2,ground3]
+    walls = [wall1,wall2,wall3,wall4]
+    
+    return terminals, grounds, walls,evil, man, chest, manhead
