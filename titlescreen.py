@@ -1,6 +1,5 @@
 import pygame 
-import sys 
-from mapmodule import makegame
+import sys  
 def title():
     # initializing the constructor 
     pygame.init() 
@@ -45,8 +44,7 @@ def title():
             #checks if a mouse is clicked 
             if ev.type == pygame.MOUSEBUTTONDOWN: 
                 if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40: 
-                    print("y")
-                    makegame()
+                    import password 
         if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40: 
             pygame.draw.rect(screen,color_light,[width/2,height/2,140,40]) 
             
@@ -58,3 +56,5 @@ def title():
         
         # updates the frames of the game 
         pygame.display.update() 
+if __name__=="__main__":
+    title()

@@ -1,3 +1,4 @@
+from tkinter import E
 import pygame
 from pygame.locals import *
 import engine.room
@@ -5,17 +6,23 @@ import random
 import engine.loader
 from engine.enemy import Enemy
 from engine.player import Player
+from engine.game import gameGen
+from engine.floor import genFloor
 
 
 #---------------liberals
 player = Player()
 pygame.init()
 seed=""
+game=[]
 room=[]
+note=0
 def init(s="steve"):
-	global seed,room
+	global seed,room, game
 	seed=s
-	room = engine.room.genRoom(seed)
+	game=genFloor(s)
+	print(game[note])
+	room = game[note]
 init()
 size=32+16
 fenetre = pygame.display.set_mode((size*16,size*17), RESIZABLE)
@@ -145,8 +152,18 @@ while continuer:
 					if room[int(nPosY/(size))][int(nPosX/(size))-1] not in ["w","T","x"]:
 						attack(int(nPosY/(size)),int(nPosX/(size)-1))
 			if nPosY/size < 1 or nPosY/size > 14:
-				init(random.randint(0,10000))
+				print(nPosX,nPosY)
 				enemPos=[]
+				if nPosY/size <1:
+					nPosX=384
+					nPosY=720
+					note+=1
+				else:
+					nPosX=576
+					nPosY=0
+					note -=1
+				print("moving to level", note )
+				room=game[note]
 				blitback(seed)
 			#print(nPosX/(size), nPosY/(size))
 			blitback(seed,False)
