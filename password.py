@@ -56,6 +56,10 @@ while running:
         if e.key == pygame.K_RETURN:
             if len(textBox.text) > 0:
                 seed=textBox.text
+                f = open('seed.txt','r+')
+                f.truncate(0)
+                f.write(str(seed))
+                f.close()
                 import mapmodule
 pygame.display.quit()
 pygame.quit()

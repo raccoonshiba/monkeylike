@@ -8,21 +8,24 @@ from engine.enemy import Enemy
 from engine.player import Player
 from engine.game import gameGen
 from engine.floor import genFloor
-
-
+seed=""
+def getseed():
+	global seed
+	with open('seed.txt') as f:
+		seed = f.read()
+getseed()
 #---------------liberals
 player = Player()
 pygame.init()
-seed=""
 game=[]
 room=[]
 note=0
-def init(s="steve"):
+def init():
 	global seed,room, game
-	seed=s
-	game=genFloor(s)
+	game=genFloor(seed)
 	print(game[note])
 	room = game[note]
+
 init()
 size=32+16
 fenetre = pygame.display.set_mode((size*16,size*17), RESIZABLE)
@@ -175,3 +178,4 @@ while continuer:
 
             # Actualise la fenêtre
 			pygame.display.flip()
+
