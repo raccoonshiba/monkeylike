@@ -3,7 +3,7 @@ from engine.room import genRoom
 from engine.seed import genSeed
 from random import randint
 
-def genFloor(x):
+def genFloor(x):#x is the seed, which is used to generate the floor, and is also used to generate the rooms
     '''Generates floor object'''
     floor=[]
     for i in range(genSeed(x)):

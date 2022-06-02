@@ -1,6 +1,6 @@
 '''creates variables, loads them into pygame'''
 import pygame
-def load(size):#does something
+def load(size):# size is a tuple, we load all assets here
     wall1 = pygame.image.load("./assets/walls/wall1.png").convert()
     wall1 = pygame.transform.scale(wall1, (size, size))
     wall2 = pygame.image.load("./assets/walls/wall2.png").convert()

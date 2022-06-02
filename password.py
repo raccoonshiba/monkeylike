@@ -3,7 +3,7 @@ import sys
 pygame.init()
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
 shiftChars = '~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?'
-
+#----------------------------------- displays a password prompting page
 class TextBox(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
@@ -64,3 +64,4 @@ while running:
 pygame.display.quit()
 pygame.quit()
 sys.exit()
+#----------------------------------- displays a password prompting page

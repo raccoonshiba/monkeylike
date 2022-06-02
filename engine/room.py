@@ -2,8 +2,8 @@
 from engine.seed import genSeed
 from random import randint
 #setstage
-def genRoom(x):
-    genSeed(str(x))
+def genRoom(x):#generate a room based on a fixed seed 
+    genSeed(str(x))#set seed
     room=[[" "]*16 for i in range(16)]
     for i in range(16):
         room[0][i]="w"
@@ -12,7 +12,6 @@ def genRoom(x):
         room[15][i]="w"
     for i in range(randint(0,1),randint(2,9)):#enemy
         room[randint(1,14)][randint(1,14)]="o"
-
     for i in range(randint(0,2),randint(2,6)):#object
         room[randint(1,14)][randint(1,14)]="x"
     for i in range(randint(0,2)):#terminal
