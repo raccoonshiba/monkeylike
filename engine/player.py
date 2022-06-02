@@ -1,7 +1,8 @@
 '''Player / Monster defined as characters'''
 import pygame
-class Player:
-    def __init__(self):
+
+class Player:# Player class
+    def __init__(self):# hp, atk, defense, affinity
         self.hp = 10
         self.max_hp = 10
         self.xp = 1
@@ -18,10 +19,10 @@ class Player:
             'potion': 0 #integer for how much hp gets restored
         }
 
-    def getHp(self):
+    def getHp(self):# return hp
         return self.hp
 
-    def getMaxHp(self):
+    def getMaxHp(self):# return max hp
         return self.max_hp()
 
     def getAtk(self):
@@ -35,6 +36,7 @@ class Player:
 
     def usePotion(self):
         pass
+
     
     def setArmour(self, stat, affinity):
         self.inventory['armour']['stat'] = stat

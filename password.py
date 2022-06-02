@@ -3,7 +3,7 @@ import sys
 pygame.init()
 validChars = "`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./"
 shiftChars = '~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?'
-
+#----------------------------------- displays a password prompting page
 class TextBox(pygame.sprite.Sprite):
   def __init__(self):
     pygame.sprite.Sprite.__init__(self)
@@ -12,7 +12,7 @@ class TextBox(pygame.sprite.Sprite):
     self.image = self.font.render("Enter your password", False, [0, 0, 0])
     self.rect = self.image.get_rect()
 
-  def add_chr(self, char):
+  def add_chr(self, char):# adds a character to the text
     global shiftDown
     if char in validChars and not shiftDown:
         self.text += char
@@ -20,7 +20,7 @@ class TextBox(pygame.sprite.Sprite):
         self.text += shiftChars[validChars.index(char)]
     self.update()
 
-  def update(self):
+  def update(self):# updates the textbox
     old_rect_pos = self.rect.center
     self.image = self.font.render(self.text, False, [0, 0, 0])
     self.rect = self.image.get_rect()
@@ -33,7 +33,7 @@ shiftDown = False
 textBox.rect.center = [320, 240]
 
 running = True
-while running:
+while running:# main loop
   screen.fill([255, 255, 255])
   screen.blit(textBox.image, textBox.rect)
   pygame.display.flip()
@@ -56,7 +56,12 @@ while running:
         if e.key == pygame.K_RETURN:
             if len(textBox.text) > 0:
                 seed=textBox.text
+                f = open('seed.txt','r+')
+                f.truncate(0)
+                f.write(str(seed))
+                f.close()
                 import mapmodule
 pygame.display.quit()
 pygame.quit()
 sys.exit()
+#----------------------------------- displays a password prompting page
