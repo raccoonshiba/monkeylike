@@ -84,7 +84,10 @@ def attack(x,y):
 		#print(i)
 		if i[0]==(y,x):
 			#print(i[1].getHp())
-			i[1].setHp(i[1].getHp() - player.getAtk())
+			if i[1].getAffinity() == player.getWeaponAffinity():
+				i[1].setHp(i[1].getHp() - player.getAtk()*2)
+			else:
+				i[1].setHp(i[1].getHp() - player.getAtk())
 			#print(i[1].getHp())
 			#print("monkenolife")
 			if i[1].getHp() <=0:

@@ -14,7 +14,7 @@ class Enemy:
         return self.atk
 
     def getAffinity(self):
-        return self.atk
+        return self.affinity
 
     def setHp(self, value):#not decrease, duck
         self.hp = value

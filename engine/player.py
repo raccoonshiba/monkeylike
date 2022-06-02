@@ -29,7 +29,10 @@ class Player:
 
     def getDef(self):
         return self.inventory['armour']['stat']
-    
+
+    def getWeaponAffinity(self):
+        return self.inventory['armour']['affinity']
+
     def usePotion(self):
         pass
     
