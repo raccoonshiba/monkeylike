@@ -2,6 +2,7 @@
 
 class Enemy:
     def __init__(self, hp: int, atk: int, affinity: str) -> None:
+        print('pog')
         self.hp = hp
         self.atk = atk
         self.affinity = affinity

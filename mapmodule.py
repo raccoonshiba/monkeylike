@@ -47,7 +47,7 @@ def blitback(seed,ii=True):
 			if j == "o":
 				fenetre.blit(evil, (x,y))
 				if ii:
-					enemPos.append(((int(x/size),int(y/size)), Enemy(random.randint(0,5),random.randint(0,5), "loser")))
+					enemPos.append(((int(x/size),int(y/size)), Enemy(random.randint(0,5),random.randint(0,5), "loser"))) 
 					print("this shound not happen more than once")
 			if j == "T":
 				fenetre.blit(random.choice(terminals), (x,y))
@@ -84,7 +84,7 @@ def attack(x,y):
 		#print(i)
 		if i[0]==(y,x):
 			#print(i[1].getHp())
-			i[1].setHp(0)
+			i[1].setHp(i[1].getHp() - player.getAtk())
 			#print(i[1].getHp())
 			#print("monkenolife")
 			if i[1].getHp() <=0:
