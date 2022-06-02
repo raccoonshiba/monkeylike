@@ -12,7 +12,7 @@ class TextBox(pygame.sprite.Sprite):
     self.image = self.font.render("Enter your password", False, [0, 0, 0])
     self.rect = self.image.get_rect()
 
-  def add_chr(self, char):
+  def add_chr(self, char):# adds a character to the text
     global shiftDown
     if char in validChars and not shiftDown:
         self.text += char
@@ -20,7 +20,7 @@ class TextBox(pygame.sprite.Sprite):
         self.text += shiftChars[validChars.index(char)]
     self.update()
 
-  def update(self):
+  def update(self):# updates the textbox
     old_rect_pos = self.rect.center
     self.image = self.font.render(self.text, False, [0, 0, 0])
     self.rect = self.image.get_rect()
@@ -33,7 +33,7 @@ shiftDown = False
 textBox.rect.center = [320, 240]
 
 running = True
-while running:
+while running:# main loop
   screen.fill([255, 255, 255])
   screen.blit(textBox.image, textBox.rect)
   pygame.display.flip()
