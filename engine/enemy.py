@@ -1,5 +1,6 @@
 '''Enemy class'''
 
+
 class Enemy:#contains all important information about enemy
     def __init__(self, hp: int, atk: int, affinity: str) -> None:# hp, atk, affinity
         self.hp = hp
@@ -12,8 +13,9 @@ class Enemy:#contains all important information about enemy
     def getAtk(self):# return atk
         return self.atk
 
-    def getAffinity(self):# return affinity
-        return self.atk
+    def getAffinity(self):
+        return self.affinity
+
 
     def setHp(self, value):# set hp
         self.hp = value

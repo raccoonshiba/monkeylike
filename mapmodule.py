@@ -51,7 +51,7 @@ def blitback(seed,ii=True):# used to load in the assets based on the room
 			if j == "o":
 				fenetre.blit(evil, (x,y))
 				if ii:
-					enemPos.append(((int(x/size),int(y/size)), Enemy(random.randint(0,5),random.randint(0,5), "loser")))
+					enemPos.append(((int(x/size),int(y/size)), Enemy(random.randint(0,5),random.randint(0,5), "loser"))) 
 					print("this shound not happen more than once")
 			if j == "T":
 				fenetre.blit(random.choice(terminals), (x,y))
@@ -82,7 +82,14 @@ def makeUI(player):# used to make the UI, need to get player hp in UI
 def attack(x,y):#used to check enemies before attacking
 	for i in enemPos:
 		if i[0]==(y,x):
-			i[1].setHp(0)
+
+			#print(i[1].getHp())
+			if i[1].getAffinity() == player.getWeaponAffinity():
+				i[1].setHp(i[1].getHp() - player.getAtk()*2)
+			else:
+				i[1].setHp(i[1].getHp() - player.getAtk())
+			#print(i[1].getHp())
+			#print("monkenolife")
 			if i[1].getHp() <=0:
 				enemPos.remove(i)
 	blitback(seed,False)
