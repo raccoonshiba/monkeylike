@@ -1,6 +1,5 @@
 import logging 
 import threading
-import time
 from pygame import mixer 
 from titlescreen import title
     
